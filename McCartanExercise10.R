@@ -43,16 +43,26 @@ ggplot(scoredf,
 # create vector of integers 1-100
 intvec=c(1:100)
 # extract random value
-randomint=sample(intvec)
+randomint=sample(intvec, 1)
 # computer message
-print("I'm thinking of a number 1-100")
-print("Guess: ")
-# record user input
-userguess=0
-if (userguess < randomint){
-  print("Higher")
-} else if (userguess > randomint){
-  print("Lower")
-} else{
-  print ("Correct!")
+print("I'm thinking of a number 1-100...")
+# create interactive function
+guessNum <- function() {
+  # provide user with 10 guesses
+  for (attempt in 1:10) {
+    # load user input
+    userguess=readline("Guess: ")
+    # if user guesses too low, print "Higher"
+    if (strtoi(userguess) < randomint){
+      print("Higher")
+    # if user guesses too high, print "Lower"
+    } else if (strtoi(userguess) > randomint){
+      print("Lower")
+    } else {
+    # if user guesses correctly, print "Correct!" and end game
+      print("Correct!")
+    {break}
+  }
+  }
 }
+if (interactive()) guessNum()
