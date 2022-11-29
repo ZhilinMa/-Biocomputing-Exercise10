@@ -18,7 +18,6 @@ for (i in 1:nrow(game)) {
   time = game$time[i]
   df[nrow(df) + 1,] <- c(time, MSU_score, UW_score)
 }
-print(MSU_score)
 for(i in 1:nrow(df)){
   df[i,2] <- (df$MSU_score[i]/MSU_score * 100)
   df[i,3] <- (df$UW_score[i]/UW_score * 100)
