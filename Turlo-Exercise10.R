@@ -40,21 +40,15 @@ ggplot(game_df, aes(x=time, y=scores)) +
 
 #Question 2: Guess my number
 #prompt
-numbergame <-function(x){
-  print("I'm thinking of a number 1-100...")
-  #generate a hidden random number
-  number=sample(100,1)
-  #get user input
-  guess = readline(prompt = 'Guess: ')
-  if(guess==number){
-    print('Correct!')
-  }else{
-    if(guess>number){
-      print('Lower')
-    }else{
-      print('Higher')
-    }
-    }
+print("I'm thinking of a number 1-100...")
+#generate a hidden random number
+number<-sample(100,1)
+#get user input
+for(i in 1:10){
+  guess<-readline(prompt = 'Guess: ')
+  if(number==guess){print('Correct')}else if(number>guess){print('Higher')}else if(number<guess){print('Lower')}
+}
+
 
 
 
