@@ -1,0 +1,62 @@
+Exercise 10 -- Carolina Andrea Jimenez Soto
+
+Problem One: Basketball Point Summation Graph
+
+#Once in working directory, load scoring data
+
+Scoringdata=read.table("UWvsMSU_1-22-13.txt", header=TRUE)
+
+#Generate a cumulative score data frame
+
+scoresum=data.frame(matrix(nrow=nrow(Scoringdata), col=3)
+df <- data.frame(matrix(ncol =3, nrow=0))
+colnames(scoresum)<- c("Time elapsed", "UW", "MSU")
+
+UW=0
+MSU=0
+
+for (row in 1:nrow(table)){
+  if (scoresum$team[row] == 'UW'){
+  UW = UW + table$score[row]
+}
+  else if (scoresum$team[row] == 'MSU'){
+  MSU = MSU + table$score[row]
+}
+ Time=scoresum$time[row]
+ df[nrow(df) +1,] <- c(Time, MSU, UW)
+}
+
+colors <- c("MSU" = "green", "UW" = "red"
+ggplot () +
+   geom_line(data = df, aes(x=Time, y = MSU, color = "MSU") +
+   geom_line(data = df, aes(x=Time, y = UW, color = "UW") +
+   ylab("Score") +
+   score_color_manual(values = colors)
+
+Problem Two: Guess My Number!
+
+#Generate a random number
+
+randomnumber= sample(1:100, 1)
+
+#Create interaction
+
+Guess <- readline("Guess My Number from 1-100!")
+
+#Establish count of 0 for no repeats
+
+count = 0
+
+#Code for game
+
+ for(i in 1:10){
+     Guess <- readline("Guess my number from 1-100") #
+     if(Guess == answer){
+         print("Correct!")
+         break
+     }else if(Guess < answer){
+         print("Higher!")
+     }else{print("Lower!")}
+     count <- count + 1
+     if(count == 10){
+         print("Start Over!")
